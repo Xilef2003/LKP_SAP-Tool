@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thema Auswahl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label, select, p {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:hover, select:focus {
+            border-color: #ff00f2;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #39aff3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thema Auswahl</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f7f7f7;
+            }
+    
+            .container {
+                max-width: 800px; /* Breite des Containers erhöhen */
+                margin: 0 auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            label, select, p {
+                display: block;
+                margin-bottom: 10px;
+            }
+    
+            select {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: #f9f9f9;
+                font-size: 16px;
+                transition: border-color 0.3s ease;
+            }
+    
+            select:hover, select:focus {
+                border-color: #ff1bec;
+            }
+    
+            p {
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 1.5;
+            }
+    
+            a {
+                color: #007bff;
+                text-decoration: none;
+            }
+    
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="container">
+            <h2>Thema Auswählen</h2>
+        
+            <label for="thema">Bitte wählen Sie ein Thema:</label>
+            <select id="thema" onchange="updateUnterthemen()">
+                <option value="Transaktionen" selected>Transaktionen</option>
+                <option value="Werksübersichten">Werksübersichten</option>
+                <option value="Bewegungsarten">Bewegungsarten</option>
+                <option value="CI-Modul">CI-Modul</option>
+                <option value="Anleitungen">Anleitungen</option>
+            </select>
+        
+            <label for="unterthema">Bitte wählen Sie ein Unterthema:</label>
+            <select id="unterthema" onchange="updateDaten()">
+                <option value="">Bitte wählen Sie ein Thema</option>
+            </select>
+        
+            <label for="daten">Ausgabe:</label>
+            <p id="daten"></p>
+        </div>
+        
+        <script>
+            var unterthemen = {
+
+                "Transaktionen": [
+
+                "Bestellung anzeigen",
+                "Bestellung bearbeiten",
+                "Bestellung freigeben",
+                "Materialbewegungen anzeigen",
+                "Materialbestand/Lagerbestand anzeigen",
+                "Transitbestand anzeigen",
+                "Material anzeigen (Grunddaten zu Materialien)",
+                "CI-Daten (aktuelle Bedarfs/Bestandsliste) anzeigen",
+                "Wareneingangs-Buchung",
+                "Warenausgangs-Buchung",
+                "Materialbeleg stornieren",
+                "MIGO - Wareneingangs-Buchung (Andere Funktionalität als MB0A)",   
+                "Wareneingang zur Bestellung bei Direktbelieferungen vom Hersteller",
+                "IDOCs Auswählen",
+                "Benutzer- & Rollenverwaltung anzeigen",
+                "Trommel und Material (um)buchen (Mit unterschiedlichsten Bewegungsarten - Auch WE und WA möglich)",
+                "Trommelcharge ändern",
+                "Trommelcharge anlegen",
+                "Datenauswertungen über MCHA oder MCHB",
+                "SM-Auftrag anzeigen",
+                "Umbuchung erfassen",
+                "Auslieferung anzeigen",
+                "Transportaufträge anzeigen",
+                "Top flow SE16",
+                "Kleinstmaterialien",
+                "Erstellung Schneidauftrag",
+                "Schneidauftrag Rückmeldung"
+        
+                ],
+        
+                "Anleitungen": {
+
+                    "Einrichtung: Auf Lagerort aufschalten": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FEinrichtung%3A%20Auf%20Lagerort%20aufschalten%7C7629ACD4-00FE-48E0-88E7-C41C7A9F8B6D%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Einrichtung%20Auf%20Lagerort%20aufschalten&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={7629ACD4-00FE-48E0-88E7-C41C7A9F8B6D}&end",
+                    "Retoure einstellen (Aus D0L0)": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FRetoure%20einstellen%20%28Aus%20D0L0%5C%29%7C0F301C6D-86E9-4538-A8F8-5682ECF8BBAF%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Retoure%20einstellen%20(Aus%20D0L0)&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={0F301C6D-86E9-4538-A8F8-5682ECF8BBAF}&end",
+                    "Direktbestellung beim Hersteller im Lokallager": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FDirektbestellung%20beim%20Hersteller%20im%20Lokallager%7C0E5F223B-10E7-458E-B598-B3CA63F2BF70%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Direktbestellung%20beim%20Hersteller%20im%20Lokallager&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={0E5F223B-10E7-458E-B598-B3CA63F2BF70}&end",
+                    "Z10 Ausbuchung der Charge/Trommeln  -  Charge ändern MSC2N": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FZ10%20Ausbuchung%20der%20Charge%5C%2FTrommeln%20%20-%20%20Charge%20%C3%A4ndern%20MSC2N%7C67AE5082-1F1B-496C-8335-895A0F45CA15%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Z10%20Ausbuchung%20der%20Charge/Trommeln%20%20-%20%20Charge%20ändern%20MSC2N&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={67AE5082-1F1B-496C-8335-895A0F45CA15}&end",
+                    "Inventurbuchungen Lokallager": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FInventurbuchungen%20Lokallager%7CFCCC37F9-AC82-496E-8EA1-75474F405AB6%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Inventurbuchungen%20Lokallager&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={FCCC37F9-AC82-496E-8EA1-75474F405AB6}&end",
+                    "Fixierung löschen": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FFixierung%20l%C3%B6schen%20%28muss%20erg%C3%A4nzt%20werden%5C%29%7C00A3ED9B-62A2-4D0E-A1C1-18CF74C077B3%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Fixierung%20löschen%20(muss%20ergänzt%20werden)&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={00A3ED9B-62A2-4D0E-A1C1-18CF74C077B3}&end",
+                    "Planlieferzeiten ändern D0L0": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FPlanlieferzeiten%20%C3%A4ndern%20D0L0%7C0A1B89E1-BAF5-4A79-AC0B-370F7F34A67D%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Planlieferzeiten%20ändern%20D0L0&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={0A1B89E1-BAF5-4A79-AC0B-370F7F34A67D}&end",
+                    "Material ohne Lieferschein im Retourenlager angekommen": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FMaterial%20ohne%20Lieferschein%20im%20Retourenlager%20angekommen%7C1039F70C-87E1-4EE2-B2B1-19F89AC53FFE%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Material%20ohne%20Lieferschein%20im%20Retourenlager%20angekommen&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={1039F70C-87E1-4EE2-B2B1-19F89AC53FFE}&end",
+                    "Fehler bei Umb. von D0L0 auf SM-Auftrag": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FFehler%20bei%20Umb.%20von%20D0L0%20auf%20SM-Auftrag%7C3A7416A7-DA67-44D9-A9C6-007484ED8F3F%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Fehler%20bei%20Umb.%20von%20D0L0%20auf%20SM-Auftrag&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={3A7416A7-DA67-44D9-A9C6-007484ED8F3F}&end",
+                    "Lieferscheine absagen und Bestellung stornieren": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FLieferscheine%20absagen%20und%20Bestellung%20stornieren%7CA9380D22-D83B-48C7-938D-0F86333F3AE0%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Lieferscheine%20absagen%20und%20Bestellung%20stornieren&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={A9380D22-D83B-48C7-938D-0F86333F3AE0}&end",
+                    "Schneidaufträge einstellen (systemisch)": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FSchneidauftr%C3%A4ge%20einstellen%20%28systemisch%5C%29%7CDFA08351-F5F7-42AA-B4C3-4AD37EDE773E%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Schneidaufträge%20einstellen%20(systemisch)&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={DFA08351-F5F7-42AA-B4C3-4AD37EDE773E}&end",
+                    "Trommeln sind nicht im Lokallager vorhanden, da sie im Transit 'festhängen'": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FTrommeln%20sind%20nicht%20im%20Lokallager%20vorhanden%2C%20da%20sie%20im%20Transit%7C9C48F36E-3560-41F3-92DE-ECDE23156F12%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Trommeln%20sind%20nicht%20im%20Lokallager%20vorhanden,%20da%20sie%20im%20Transit&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={9C48F36E-3560-41F3-92DE-ECDE23156F12}&end",
+                    "Retoure mit CI-Material stornieren": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FRetoure%20mit%20CI-Material%20stornieren%7CD61C4FEE-DEF9-45F6-997C-958FB6226BD4%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Retoure%20mit%20CI-Material%20stornieren&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={D61C4FEE-DEF9-45F6-997C-958FB6226BD4}&end",
+                    "Manuelle WE-Buchung Lokallager aus Transit": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FManuelle%20WE-Buchung%20Lokallager%20aus%20Transit%7C7B835FC9-2B78-42F0-851C-373CD33B839A%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Manuelle%20WE-Buchung%20Lokallager%20aus%20Transit&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={7B835FC9-2B78-42F0-851C-373CD33B839A}&end",
+                    "Charge anzeigen/ändern": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FCharge%20anzeigen%5C%2F%C3%A4ndern%7CDCF04461-C12C-4B57-ACDD-72433DBA1274%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Charge%20anzeigen/ändern&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={DCF04461-C12C-4B57-ACDD-72433DBA1274}&end",
+                    "Einzelne Materialpositionen vom SMA ausbuchen": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FEinzelne%20Materialpositionen%20vom%20SMA%20ausbuchen%7C495AE46E-8D24-4A81-AC05-D7E955D6AA59%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Einzelne%20Materialpositionen%20vom%20SMA%20ausbuchen&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={495AE46E-8D24-4A81-AC05-D7E955D6AA59}&end",
+                    "MRP-Monitor Auswertung": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FMRP-Monitor%20Auswertung%7C3D0159FE-6D83-43EE-B7FA-5A7104E7D0A2%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#MRP-Monitor%20Auswertung&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={3D0159FE-6D83-43EE-B7FA-5A7104E7D0A2}&end",
+                    "Retoure stornieren": "https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FRetoure%20stornieren%7C72480F42-999E-4438-9224-DB198046CA60%2F%29 \
+        onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Retoure%20stornieren&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={72480F42-999E-4438-9224-DB198046CA60}&end",
+        
+            },
+                
+                "CI-Modul": [
+        
+                    "Status A = Bestände unter Ausschlachtungsgrenze",
+                    "Status B = Freie Bestände",
+                    "Status F = Fixierte Zuordnung zur Lieferung",
+                    "Status L = Zuordnung auf Lieferschein fixiert",
+                    "Status Z = Von Disposition oder CI-Modul zugeordnet",
+                    "Status R = Festreservierte Zuordnung",
+                    "Status S = In Schneidabwicklung",
+                    "Status N  = Von Disposition gesperrte Bestände"
+        
+             ],
+
+                "Werksübersichten": [
+
+                    "Ansicht aller Werke"
+
+        ],
+
+        "Bewegungsarten": [
+
+                    "Ansicht aller Bewegungsarten"
+
+        ]
+        
+            };
+        
+            var daten = {
+                
+                "Bestellung anzeigen": "ME23N",
+                "Bestellung bearbeiten": "ME22N",
+                "Bestellung freigeben": "ME29N",
+                "Materialbewegungen anzeigen": "MB51",
+                "Materialbestand/Lagerbestand anzeigen": "MB52",
+                "Transitbestand anzeigen": "MB5T",
+                "Material anzeigen (Grunddaten zu Materialien)": "MM03",
+                "CI-Daten (aktuelle Bedarfs/Bestandsliste) anzeigen": "MD04",
+                "Wareneingangs-Buchung": "MB0A",
+                "Warenausgangs-Buchung": "MB1A",
+                "Materialbeleg stornieren": "MBST",
+                "MIGO - Wareneingangs-Buchung (Andere Funktionalität als MB0A)": "MIGO",
+                "Wareneingang zur Bestellung bei Direktbelieferungen vom Hersteller": "MB01",
+                "Benutzer- & Rollenverwaltung anzeigen": "SUIM",
+                "IDOCs Auswählen": "BD87",
+                "Trommel und Material (um)buchen (Mit unterschiedlichsten Bewegungsarten - Auch WE und WA möglich)": "MB11",
+                "Trommelcharge ändern": "MSC2N",
+                "Trommelcharge anlegen": "MSC1N",
+                "Datenauswertungen über MCHA oder MCHB": "SE1",
+                "SM-Auftrag anzeigen": "IW33",
+                "Umbuchung erfassen": "MB1B",
+                "Auslieferung anzeigen": "VL33N",
+                "Transportaufträge anzeigen": "ZDS_Trans3L",
+                "Top flow SE16": "/TFTO/SE16",
+                "Kleinstmaterialien": "ZCS_KLSTM_MAT_T",
+                "Erstellung Schneidauftrag": "/TCIS/MCUT",
+                "Schneidauftrag Rückmeldung": "/TCIS/CO11",
+        
+                // CI-Modul
+        
+                "Status A = Bestände unter Ausschlachtungsgrenze": "Ausschlachtungsgrenze wird vom Materialdisponenten definiert.\n\n Chargen unterhalb der Ausschlachtungsgrenze sind hier aufgelistet.\n\n LDL hat die Aufgabe, regelmäßig diese Liste zu bearbeiten und Verschrottungen durchzuführen.",
+                "Status B = Freie Bestände": "Bestand im Lager, ohne Zuordnung.\n\nFrei zur Verwendung.",
+                "Status F = Fixierte Zuordnung zur Lieferung": "Zwischenschritt vor dem Erstellen des Lieferscheins.",
+                "Status L = Zuordnung auf Lieferschein fixiert":"Kundenauftrag (SD-Beleg/Pos) oder Umlagerungsbestellung (ins Lager eines Auftragsnehmers oder Werk an Werk) erhält eine Lieferung.\n \nLieferschein wird von LDL erzeugt.",
+                "Status Z = Von Disposition oder CI-Modul zugeordnet":"Auflistung der Chargen, die systemisch einem Kundenauftrag oder einer Umlagerungsbestellung zugeordnet wurden.\n\n Daraus kann ein Lieferschein folgen oder erst noch eine Schneidabwicklung.\n\n SH (=Sicherheitsbestand) ist ein fiktiver Kundenauftrag um einen Bedarf zu simulieren.",
+                "Status R = Festreservierte Zuordnung":"Der Materialdisponent hat einen Kundenauftrag (z.B. im Eskalations- oder Priorisierungsverfahren) eine Charge fest zugeordnet.\n\n Zuordnung wird nicht durch systemische Disposition geändert.\n\n Weitere Prozessierung in Status S oder Status L erfolgt durch LDL.",
+                "Status S = In Schneidabwicklung":"Auflistung von Chargen und Kundenaufträgen die passend geschnitten werden.\n\n Kundenauftrags-/Chargenkombination wird von LDL in diesen Status gesetzt.",
+                "Status N  = Von Disposition gesperrte Bestände":"Sperrung kann von LDL als auch Disponenten erfolgen.\n\n Sperrung von LDL erfolgt mit BWA und ist mit dem Text (in QualiPrüfung) gekennzeichnet.\n\n Wird verwendet, wenn Material als schadhaft erkannt oder vermutet wird und Klärung aussteht.\n\n Wird auch verwendet, wenn Material auf Lagerplätzen steht, auf die nicht unmittelbar zugegriffen werden kann.\n\n Sperrung erfolgt von Disposition mit BWA xx und ist mit dem Text (Gesperrt) gekennzeichnet.\n\n Wird verwendet, um Engpasssituationen entgegenzuwirken, der automatischen Disposition vorzuenthalten und Priorisierungen und Eskalationen zu bedienen.",
+        
+        
+            };
+
+    function updateUnterthemen() {
+        var thema = document.getElementById("thema").value;
+        var unterthemaDropdown = document.getElementById("unterthema");
+        unterthemaDropdown.innerHTML = ""; // Reset dropdown
+
+        var unterthemenList = unterthemen[thema];
+        if (unterthemenList instanceof Array) {
+            unterthemenList.forEach(function (unterthema) {
+                var option = document.createElement("option");
+                option.text = unterthema;
+                option.value = unterthema;
+                unterthemaDropdown.appendChild(option);
+            });
+        } else {
+            for (var unterthema in unterthemen[thema]) {
+                var option = document.createElement("option");
+                option.text = unterthema;
+                option.value = unterthema;
+                unterthemaDropdown.appendChild(option);
+            }
+        }
+
+        // Beim Ändern des Themas das erste Unterthema auswählen und die Daten aktualisieren
+        updateDaten();
+    }
+
+    function updateDaten() {
+        var thema = document.getElementById("thema").value;
+        var unterthema = document.getElementById("unterthema").value;
+        var datenParagraph = document.getElementById("daten");
+
+        if (thema === "Anleitungen") {
+            datenParagraph.innerHTML = "<a href='" + unterthemen[thema][unterthema] + "' target='_blank'>Link zu:  " + unterthema + "</a>";
+        } else if (thema === "Werksübersichten") {
+            datenParagraph.innerHTML = "<a href='https://telekom.sharepoint.de/sites/T-LKP2023/_layouts/OneNote.aspx?id=%2Fsites%2FT-LKP2023%2FSiteAssets%2FNotizbuch%20f%C3%BCr%20T-LKP%202023&wd=target%28SAP%20Anleitungen.one%7CA5CFE52B-4C12-4070-A6D2-33FB71AFA71C%2FWerks%C3%BCbersicht%7CFA1184E9-BB94-4556-9455-CBBB09A51B49%2F%29\
+onenote:https://telekom.sharepoint.de/sites/T-LKP2023/SiteAssets/Notizbuch%20für%20T-LKP%202023/SAP%20Anleitungen.one#Werksübersicht&section-id={A5CFE52B-4C12-4070-A6D2-33FB71AFA71C}&page-id={FA1184E9-BB94-4556-9455-CBBB09A51B49}&end' target='_blank'>Link zur Werksübersicht</a>";
+        } else if (thema === "Bewegungsarten") {
+            datenParagraph.innerHTML = "<a href='https://telekom.sharepoint.de/:x:/r/sites/BB5A1/_layouts/15/Doc.aspx?sourcedoc=%7B953A18AD-2744-4354-A910-D6288AA2FEDC%7D&file=Bewegungsarten%20nach%20Transaktionen.xlsx&action=default&mobileredirect=true' target='_blank'>Link zu allen Bewegungsarten</a>"
+        } else {
+            if (unterthema in daten) {
+                datenParagraph.innerText = daten[unterthema];
+            } else {
+                datenParagraph.innerText = "Keine Daten verfügbar";
+            }
+        }
+    }
+
+    // Unterthemen für "Transaktionen" direkt laden
+    window.onload = function() {
+        updateUnterthemen();
+    };
+</script>
+
+</body>
+</html>
